@@ -1,13 +1,27 @@
 [package]
-name    = "lib_template_rust"
+name    = "lib-itest"
 version = "0.1.0"
-edition = "2021"              # Allowed values are 2015, 2018, 2021
+edition = "2021"      # Allowed values are 2015, 2018, 2021
 # Rust Editions: https://doc.rust-lang.org/edition-guide/index.html
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-cargo-husky = "1"
+async-trait = "0.1.64"
+hyper       = { version = "0.14", features = ["full"] }
+rand        = "0.8.5"
+serde_json  = "1.0.93"
+
+[dependencies.svc-cargo-client-rest]
+git = "https://github.com/Arrow-air/svc-cargo"
+tag = "v0.8.0-develop.8"
+
+[dependencies.svc-assets-client-rest]
+git = "https://github.com/Arrow-air/svc-assets"
+tag = "v0.3.0-develop.9"
+
+[dev-dependencies]
+tokio = { version = "1.20", features = ["full"] }
 
 [dev-dependencies.cargo-husky]
 default-features = false          # Disable features which are enabled by default
@@ -15,5 +29,5 @@ features         = ["user-hooks"]
 version          = "1"
 
 [lib]
-name = "lib_template_rust"
+name = "lib_itest"
 path = "src/lib.rs"
